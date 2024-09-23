@@ -1,0 +1,86 @@
+const int LED_VERMELHO = 2, LED_VERDE = 4, LED_AZUL= 3;
+int entrada = 8;
+String mensagem;
+  void setup()
+  {
+    Serial.begin(9600);            //configura comunicação serial com 9600 bps
+    pinMode(LED_BUILTIN, OUTPUT);  //configura pino do led como saída
+    mensagem = "";
+    pinMode(LED_VERMELHO, OUTPUT);
+    pinMode(LED_VERDE, OUTPUT);
+    pinMode(LED_AZUL, OUTPUT);
+    Serial.begin(9600);
+    
+      
+      Serial.println("Vermeho");
+      Serial.println("Azul");
+      Serial.println("Verde");
+      Serial.println("Amarelo");
+      Serial.println("Magenta");
+      Serial.println("Ciano");
+      Serial.println("Branco");
+      Serial.println("Apagado");
+      Serial.println("Brasil");
+        
+  }
+void loop()
+  {
+    mensagem = Serial.readString(); 
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+      switch(mensagem)
+      {
+        case "Vermelho" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_VERMELHO, HIGH);
+        break;
+        case "Azul" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_AZUL, HIGH);
+        break;
+        case "Verde" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_VERDE, HIGH);
+        break;
+        case "Amarelo" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_VERDE, HIGH); digitalWrite(LED_VERMELHO,HIGH);
+        break;
+        case "Magenta" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_AZUL, HIGH); digitalWrite(LED_VERMELHO,HIGH); 	
+        break;
+        case "Ciano" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+        digitalWrite(LED_AZUL, HIGH); digitalWrite(LED_VERDE,HIGH);
+        break;
+        case "Branco" :
+        digitalWrite(LED_VERMELHO,HIGH);digitalWrite(LED_VERDE,HIGH);digitalWrite(LED_AZUL,HIGH);          
+        break;
+        case "Apagado" :
+        digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);       
+        break; 
+        case "Brasil":            
+          for(int i =0; i < 3; i++)
+          {
+            entrada = Serial.parseInt();
+            digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+            digitalWrite(LED_VERDE, HIGH);
+            delay(1000);
+            digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+            digitalWrite(LED_VERDE, HIGH); digitalWrite(LED_VERMELHO,HIGH);
+            delay(1000);
+            digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+            digitalWrite(LED_AZUL,HIGH);
+            delay(1000);          	 	
+          }
+          digitalWrite(LED_VERMELHO,LOW);digitalWrite(LED_VERDE,LOW);digitalWrite(LED_AZUL,LOW);
+          Serial.println("Informe outro valor ou o mesmo:");       
+          break;
+          default: 
+          Serial.println("escolha algo valido");
+          break;
+        }
+  }
+    
+
