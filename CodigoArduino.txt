@@ -1,0 +1,106 @@
+const int LED_VERMELHO = 2, LED_VERDE = 4, LED_AZUL= 3;
+String mensagem;
+
+  void setup()
+  {
+    Serial.begin(9600);            
+    mensagem == "8";
+    pinMode(LED_VERMELHO, OUTPUT);
+    pinMode(LED_VERDE, OUTPUT);
+    pinMode(LED_AZUL, OUTPUT);
+    Serial.begin(9600);     
+  }
+void loop()
+  {
+    if (Serial.available())  //se byte pronto para leitura
+  {  
+      mensagem = Serial.readString(); 
+      if (mensagem == "Vermeho") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_VERMELHO, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+    } else if (mensagem == "Verde") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_AZUL, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+    } else if (mensagem == "Azul") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_VERDE, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Amarelo") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_VERDE, HIGH);
+    digitalWrite(LED_VERMELHO, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Magenta") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_AZUL, HIGH);
+    digitalWrite(LED_VERMELHO, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Ciano") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    digitalWrite(LED_AZUL, HIGH);
+    digitalWrite(LED_VERDE, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Branco") {
+    digitalWrite(LED_VERMELHO, HIGH);
+    digitalWrite(LED_VERDE, HIGH);
+    digitalWrite(LED_AZUL, HIGH);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Apagado") {
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    Serial.println("Valor informado:");
+    Serial.println(mensagem);
+} else if (mensagem == "Brasil") {
+        Serial.println("Valor informado:");
+        Serial.println(mensagem);
+    for (int i = 0; i < 3; i++) {
+        mensagem = Serial.parseInt();
+        digitalWrite(LED_VERMELHO, LOW);
+        digitalWrite(LED_VERDE, LOW);
+        digitalWrite(LED_AZUL, LOW);
+        digitalWrite(LED_VERDE, HIGH);
+        delay(1000);
+        digitalWrite(LED_VERMELHO, LOW);
+        digitalWrite(LED_VERDE, LOW);
+        digitalWrite(LED_AZUL, LOW);
+        digitalWrite(LED_VERDE, HIGH);
+        digitalWrite(LED_VERMELHO, HIGH);
+        delay(1000);
+        digitalWrite(LED_VERMELHO, LOW);
+        digitalWrite(LED_VERDE, LOW);
+        digitalWrite(LED_AZUL, LOW);
+        digitalWrite(LED_AZUL, HIGH);
+        delay(1000);
+    }
+    digitalWrite(LED_VERMELHO, LOW);
+    digitalWrite(LED_VERDE, LOW);
+    digitalWrite(LED_AZUL, LOW);
+    Serial.println("Informe outro valor ou o mesmo:");
+} else {
+    Serial.println("escolha algo valido");
+}
+  }
+  }
+    
