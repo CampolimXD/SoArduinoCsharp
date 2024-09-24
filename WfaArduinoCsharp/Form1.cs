@@ -23,7 +23,7 @@ namespace WfaArduinoCsharp
         private void SrpArduino_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var dados = srpArduino.ReadLine();
-            cmbEscolha.Invoke(new Action(() => { cmbEscolha.Text += dados + "\n"; }));
+            textBox1.Invoke(new Action(() => { textBox1.Text += dados + "\n"; }));
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
@@ -59,8 +59,9 @@ namespace WfaArduinoCsharp
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            textBox1.Clear();
             if (srpArduino.IsOpen)
-                srpArduino.Write(cmbEscolha.Text);
+                srpArduino.Write(comboBox1.Text);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -97,6 +98,21 @@ namespace WfaArduinoCsharp
                 cmbPortas.Items.Add(porta);
 
             cmbPortas.SelectedIndex = 0;
+        }
+
+        private void cmbEscolha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
